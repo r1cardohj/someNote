@@ -74,5 +74,50 @@ MYDIR = 'xxx'
 os.path.exists(MYDIR) or makedirs
 ```
 
+打开并读取文件
+
+``` python
+with open('bibi.txt',encoding="utf-8") as f:
+    read_data = f.read()
+# with 会在执行完 read_data = f.read()后自动关闭文件对象
+# 相当于执行f.close()
+print(read_data)
+```
+
+按行遍历文件
+
+``` python
+for line in f:
+    print(line,end = '')
+```
+
+
+
+
+
+## 数据结构
+
+### *号的使用
+
+​	在python中*号可以获取任意数量的值，并以此创建一个数组，哪怕没有值，也会返回一个空的数组
+
+```bash
+>>> record = ('Dave', 'dave@example.com', '773-555-1212', '847-555-1212')
+>>> name, email, *phone_numbers = record
+>>> name
+'Dave'
+>>> email
+'dave@example.com'
+>>> phone_numbers
+['773-555-1212', '847-555-1212']
+>>>
+```
+
+​	如果在可迭代对象中使用，则会对该数据结构进行解包。
+
+
+
+
+
 
 

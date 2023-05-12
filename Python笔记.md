@@ -180,6 +180,18 @@ now.strftime("%d %y %m %B %b %A %Y")
 >
 > 挖个坑 有空专门研究...
 
+### decimal
+
+> 用于精确的浮点数计算 例如钱啊啥的
+
+```python
+>>> from decimal import *
+>>> round(Decimal('0.70') * Decimal('1.05'), 2)
+Decimal('0.74')
+>>> round(.70 * 1.05, 2)
+0.73
+```
+
 ## 数据结构
 
 ### *号的使用
@@ -200,7 +212,49 @@ now.strftime("%d %y %m %B %b %A %Y")
 
 ​	如果在可迭代对象中使用，则会对该数据结构进行解包。
 
+## 数据库相关
 
+### 连接到mssql
+
+> 主要使用pymssql包 需install
+
+``` python
+#mssql数据库连接
+import pymssql
+
+HOST = 'xxxxx'
+USRNAME = 'xxxx'
+PW = 'xxxx'
+DBNAME = 'xxxxx'
+
+def conn():
+    connect = pymssql.connect(HOST,USRNAME,PW,DBNAME)
+    if connect:
+        print("连接成功")
+    return connect
+
+if __name__ == "__main__":
+    #用 with 会自动关闭conn对象和cursor对象
+    with conn() as conn:
+        #as_dict = True 即cursor用dict类型返回值
+        with conn.cursor(as_dict= True) as cursor:
+            cursor.execute('select top 1 * from mytable')
+            for row in cursor:
+                print(row)
+    
+```
+
+调用存储过程
+
+``` python
+cursor.callproc('procname',(parm,))
+```
+
+提交修改
+
+``` python
+conn.commit()
+```
 
 
 

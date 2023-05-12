@@ -236,7 +236,7 @@ def conn():
 if __name__ == "__main__":
     #用 with 会自动关闭conn对象和cursor对象
     with conn() as conn:
-        #as_dict = True 即cursor用dict类型返回值
+        #as_dict = True 即cursor用dict类型返回值,默认为元组
         with conn.cursor(as_dict= True) as cursor:
             cursor.execute('select top 1 * from mytable')
             for row in cursor:

@@ -4,6 +4,32 @@
 
 
 
+## Venv
+
+> python内置模块创建虚拟环境
+
+创建虚拟环境
+
+``` bash
+$ python -m venv env  # Windows
+$ python3 -m venv env  # Linux 和 macOS
+```
+
+激活虚拟环境
+
+``` bash
+$ env\Scripts\activate  # Windows
+$ . env/bin/activate  # Linux 或 macOS
+```
+
+退出虚拟环境
+
+``` bash
+(env) $ deactivate
+```
+
+
+
 ## Pipenv
 
 _python的虚拟环境以及包依赖管理工具_
@@ -30,6 +56,8 @@ _python的虚拟环境以及包依赖管理工具_
 | Bingbot     | 必应      | www.bing.com      |
 
 ### request
+
+> [2.18.1中文版文档](https://requests.readthedocs.io/projects/cn/zh_CN/latest/user/quickstart.html)
 
 #### 避免ssl认证
 
